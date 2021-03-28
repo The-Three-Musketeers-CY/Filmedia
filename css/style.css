@@ -58,6 +58,8 @@ h2{
 }
 #navbar li{
     list-style-type: none;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 #welcome-search{
