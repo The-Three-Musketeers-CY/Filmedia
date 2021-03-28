@@ -99,6 +99,9 @@ input:focus{
     overflow-y: hidden;
 }
 .horizontal-scroll article{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     max-width: 185px;
     margin-left: 2%;
 }
@@ -109,4 +112,5 @@ input:focus{
 }
 .horizontal-scroll article img {
     border-radius: 20px;
+    height: 278px;
 }
