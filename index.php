@@ -15,9 +15,17 @@
             </article>
         </section>
         <section id="actuals-media">
-            <h2>A l'affiche</h2>
+            <h2>Films à l'affiche</h2>
             <div class="horizontal-scroll">
-            
+<?php
+$movies = getNowPlayingMovies();
+foreach($movies as $movie){
+    echo "<article id=\"".$movie->id."\">\n";
+    echo "\t<h3>".$movie->title."</h3>\n";
+    echo "\t<img src=\"https://image.tmdb.org/t/p/w185/".$movie->poster_path."\"alt=\"Affiche de ".$movie->title."\"/>\n";
+    echo "</article>\n";
+}
+?>
             </div>
         </section>
         <section id="tendances">
