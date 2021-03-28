@@ -37,11 +37,19 @@ foreach($movies as $movie){
             <h2>Tendances du moment</h2>
             <div class="horizontal-scroll">
 <?php
-$movies = getWeekTrends();
-foreach($movies as $movie){
-    echo "<article id=\"".$movie->id."\">\n";
-    echo "\t<img src=\"https://image.tmdb.org/t/p/w185".$movie->poster_path."\" alt=\"Affiche de ". ((isset($movie->title)) ? $movie->title : "") . ((isset($movie->name)) ? $movie->name : "") ."\"/>\n";
-    echo "\t<h3>". ((isset($movie->title)) ? $movie->title : "") . ((isset($movie->name)) ? $movie->name : "") ."</h3>\n";
+$trends = getWeekTrends();
+foreach($trends as $trend){
+    if ($trend->media_type == "movie") {
+        $title = $trend->title;
+        $date = $trend->release_date;
+    } else {
+        $title = $trend->name;
+        $date = $trend->first_air_date;
+    }
+    echo "<article id=\"". $trend->id ."\">\n";
+    echo "\t<img src=\"https://image.tmdb.org/t/p/w185". $trend->poster_path ."\" alt=\"Affiche de ". $title ."\"/>\n";
+    echo "\t<h3>". $title ."</h3>\n";
+    echo "\t\t<p>" . strftime("%d %b %Y", date_timestamp_get(date_create($date))) . "</p>\n";
     echo "</article>\n";
 }
 ?>
