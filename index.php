@@ -21,9 +21,9 @@
 $movies = getNowPlayingMovies();
 foreach($movies as $movie){
     echo "<article id=\"".$movie->id."\">\n";
-    echo "\t<h3>".$movie->title."</h3>\n";
     echo "\t<img src=\"https://image.tmdb.org/t/p/w185".$movie->poster_path."\"alt=\"Affiche de ".$movie->title."\"/>\n";
-    echo "\t<p>" . date_format(date_create($movie->release_date), "d M Y") . "</p>\n";
+    echo "\t<h3>".$movie->title."</h3>\n";
+    echo "\t<p>" . strftime("%d %b %Y", date_timestamp_get(date_create($movie->release_date))) . "</p>\n";
     echo "</article>\n";
 }
 ?>
@@ -36,8 +36,8 @@ foreach($movies as $movie){
 $movies = getWeekTrends();
 foreach($movies as $movie){
     echo "<article id=\"".$movie->id."\">\n";
-    echo "\t<h3>". ((isset($movie->title)) ? $movie->title : "") . ((isset($movie->name)) ? $movie->name : "") ."</h3>\n";
     echo "\t<img src=\"https://image.tmdb.org/t/p/w185".$movie->poster_path."\"alt=\"Affiche de ". ((isset($movie->title)) ? $movie->title : "") . ((isset($movie->name)) ? $movie->name : "") ."\"/>\n";
+    echo "\t<h3>". ((isset($movie->title)) ? $movie->title : "") . ((isset($movie->name)) ? $movie->name : "") ."</h3>\n";
     echo "</article>\n";
 }
 ?>

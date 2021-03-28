@@ -103,7 +103,7 @@ input:focus{
     flex-direction: column;
     justify-content: space-between;
     max-width: 185px;
-    margin-left: 2%;
+    padding: 1%;
 }
 .horizontal-scroll article h3 {
     text-overflow: ellipsis;

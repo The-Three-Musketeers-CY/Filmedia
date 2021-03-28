@@ -1,4 +1,6 @@
 <?php
+    setlocale(LC_TIME, "fr_FR.UTF8");
+
     require_once './include/functions.inc.php';
 ?>
 <!DOCTYPE html>
