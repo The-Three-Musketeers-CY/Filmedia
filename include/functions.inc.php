@@ -53,3 +53,32 @@
 
         return $results;
     }
+
+    function getMovieDetails(int $movie) {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.themoviedb.org/3/movie/$movie?api_key=" . API_KEY . "&language=fr-FR&append_to_response=watch%2Fproviders,release_dates",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+        curl_close($curl);
+
+        if ($code != "200") {
+            return false;
+        }
+
+        $response = json_decode($response);
+
+        return $response;
+    }

@@ -22,7 +22,7 @@
 <?php
 $movies = getNowPlayingMovies();
 foreach($movies as $movie){
-    echo "<a href=\"./details.php?id=" . $movie->id . "\">\n";
+    echo "<a href=\"./details.php?id=" . $movie->id . "&amp;type=movie\">\n";
     echo "\t<article id=\"".$movie->id."\">\n";
     echo "\t\t<img src=\"https://image.tmdb.org/t/p/w185".$movie->poster_path."\" alt=\"Affiche de ".$movie->title."\"/>\n";
     echo "\t\t<h3>".$movie->title."</h3>\n";
@@ -46,11 +46,13 @@ foreach($trends as $trend){
         $title = $trend->name;
         $date = $trend->first_air_date;
     }
+    echo "<a href=\"./details.php?id=" . $trend->id . "&amp;type=". $trend->media_type ."\">\n";
     echo "<article id=\"". $trend->id ."\">\n";
     echo "\t<img src=\"https://image.tmdb.org/t/p/w185". $trend->poster_path ."\" alt=\"Affiche de ". $title ."\"/>\n";
     echo "\t<h3>". $title ."</h3>\n";
     echo "\t\t<p>" . strftime("%d %b %Y", date_timestamp_get(date_create($date))) . "</p>\n";
     echo "</article>\n";
+    echo "</a>\n";
 }
 ?>
             </div>
