@@ -147,8 +147,7 @@ input:focus{
     margin-bottom: 2rem;
 }
 #search * {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
 }
 
 #search-bar{
@@ -183,14 +182,17 @@ input:focus{
     margin: 1.5rem;
     box-shadow: 0px 0px 20px 2px rgb(236, 236, 236);
     border-radius: 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 .result-info{
     padding: 1rem;
 }
 .result-description{
-    margin-top: 0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    margin-top: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .horizontal-scroll{
