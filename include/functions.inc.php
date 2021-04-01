@@ -84,11 +84,13 @@
     }
 
     function searchMedia(string $query) {
+        // Encoding $query to URL to avoid spaces
+        $query = urlencode($query);
 
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://api.themoviedb.org/3/search/multi?api_key=".API_KEY."&language=fr-FR&query=".$query."&page=1&include_adult=false",
+        CURLOPT_URL => "https://api.themoviedb.org/3/search/multi?api_key=" . API_KEY . "&language=fr-FR&query=" . $query . "&page=1&include_adult=false",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,

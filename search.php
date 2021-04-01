@@ -1,7 +1,7 @@
 <?php
     require './include/header.inc.php';
     if(isset($_GET['q']) && !empty($_GET['q'])){
-        $query = $_GET['q'];
+        $query = htmlspecialchars($_GET['q']);
     }else{
         header('Location: ./');
         exit();
@@ -35,14 +35,14 @@ foreach($medias as $media){
     }
     echo "<a href=\"./details.php?id=" . $media->id . "&amp;type=". $media->media_type ."\">\n";
     echo "<article class=\"result\" id=\"". $media->id ."\">\n";
-    echo "\t<aside>\n";
+    echo "\t<aside class=\"result-img\">\n";
     if(isset($media->poster_path)){
         echo "\t\t<img src=\"https://image.tmdb.org/t/p/w154". $media->poster_path ."\" alt=\"Affiche de ". $title ."\"/>\n";
     }else{
         echo "\t\t<img src=\"./img/no-image.svg\" width=\"154\" alt=\"no image\"/>\n";
     }
     echo "\t</aside>\n";
-    echo "\t<div>\n";
+    echo "\t<div class=\"result-info\">\n";
     echo "\t\t<h3>". $title ."</h3>\n";
     echo "\t\t\t<p>" . strftime("%d %b %Y", date_timestamp_get(date_create($date))) . "</p>\n";
     echo "\t\t\t<p class=\"result-description\">" . $media->overview . "</p>\n";
