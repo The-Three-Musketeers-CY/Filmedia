@@ -82,3 +82,31 @@
 
         return $response;
     }
+
+    function searchMedia(string $query) {
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.themoviedb.org/3/search/multi?api_key=".API_KEY."&language=fr-FR&query=".$query."&page=1&include_adult=false",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        $response = json_decode($response);
+
+        $results = $response->results;
+
+        return $results;
+
+    }

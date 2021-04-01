@@ -5,7 +5,7 @@
         <h1>Filmedia - Trouvez ce qui vous plait !</h1>
         <section id="welcome-search">
             <h2>Que recherchez-vous ?</h2>
-            <form action="#" method="get">
+            <form action="./search.php" method="get">
                 <input type="text" name="q" id="search-bar" placeholder="Films, séries, ..." />
                 <input type="submit" value="Rechercher" />
             </form>
