@@ -44,7 +44,7 @@ if ($type == "movie") {
 }
 
 if (date_timestamp_get(date_create($date)) > time()) {
-    $displayDate = "Prochainement le : " . $displayDate;
+    $displayDate = "Prochainement : le " . $displayDate;
 }
 
 $genres = "" ;
