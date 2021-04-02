@@ -13,7 +13,7 @@
         <section id="search">
             <h2>Recherche :</h2>
             <form action="./search.php" method="get">
-                <input type="text" name="q" id="search-bar-reduce" placeholder="Films, séries, ..." />
+                <input type="text" name="q" id="search-bar-reduce" value="<?php echo $query; ?>" placeholder="Films, séries, ..." />
                 <input type="submit" value="Rechercher" />
             </form>
         </section>
@@ -71,7 +71,7 @@ foreach($medias as $media){
         echo "<article class=\"result\" id=\"". $media->id ."\">\n";
         echo "\t<aside class=\"result-img\">\n";
         if(isset($media->profile_path)){
-            echo "\t\t<img src=\"https://image.tmdb.org/t/p/w154". $media->profile_path ."\" alt=\"Photo de ". $media->name ."\"/>\n";
+            echo "\t\t<img src=\"https://image.tmdb.org/t/p/w92". $media->profile_path ."\" alt=\"Photo de ". $media->name ."\"/>\n";
         }else{
             echo "\t\t<img src=\"./img/no-image.svg\" width=\"154\" alt=\"no image\"/>\n";
         }
