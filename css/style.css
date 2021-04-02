@@ -202,6 +202,9 @@ input:focus{
 #details img{
     border-radius: 20px;
 }
+#details > img {
+    height: 100%;
+}
 
 #details-info{
     padding: 1rem;
@@ -229,17 +232,21 @@ input:focus{
 
 #details aside {
     padding: 1rem;
-}
-#details aside h3 {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #cast {
-    display: grid;
+    display: inline-grid;
+    justify-items: center;
     grid-template-columns: 1fr 1fr;
 }
 #cast article {
     margin: 1rem;
+}
+#cast article p {
+    max-width: 92px;
 }
 
 .provider-icon{
