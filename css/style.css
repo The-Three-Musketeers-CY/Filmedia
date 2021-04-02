@@ -57,6 +57,10 @@ h2{
     color: #0D2144;
 }
 
+strong {
+    color: #0D2144;
+}
+
 a{
     text-decoration: none;
     color: inherit;
@@ -296,7 +300,7 @@ input:focus{
     flex-direction: column;
     justify-content: space-between;
     max-width: 185px;
-    padding: 1.5rem;
+    padding: 2rem;
 }
 
 .horizontal-scroll article:first-of-type{

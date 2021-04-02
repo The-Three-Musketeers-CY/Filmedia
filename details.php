@@ -72,6 +72,12 @@ if(isset($media->poster_path)){
             <div id="details-info">
                 <div id="details-info-title">
                     <h2><?php echo $title; ?></h2>
+<?php
+    if (isset($media->homepage) && !empty($media->homepage)) {
+        echo "<a href=\"". $media->homepage ."\">Voir plus...</a>";
+    }
+?>
+                    
                     <p><?php echo $displayDate; ?></p>
                     <p>Genres : <?php echo $genres; ?>
                 </div>
