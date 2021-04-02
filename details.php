@@ -32,6 +32,17 @@ if ($type == "movie") {
     $title = $media->name;
     $date = $media->first_air_date;
 }
+$date = strftime("%d %b %Y", date_timestamp_get(date_create($date)));
+
+foreach ($media->release_dates->results as $release_dates) {
+    if ($release_dates->iso_3166_1 == "FR") {
+        $date = $release_dates->release_dates[0]->release_date;
+        $date = strftime("%d %b %Y", date_timestamp_get(date_create($date))) . " (FR)";
+        if (date_timestamp_get(date_create($release_dates->release_dates[0]->release_date)) > time()) {
+            $date = "Prochainement le : " . $date;
+        }
+    }
+}
 
 $genres = "" ;
 $i = 0 ;
@@ -58,7 +69,7 @@ if(isset($media->poster_path)){
             <div id="details-info">
                 <div id="details-info-title">
                     <h2><?php echo $title; ?></h2>
-                    <p><?php echo strftime("%d %b %Y", date_timestamp_get(date_create($date))); ?></p>
+                    <p><?php echo $date; ?></p>
                     <p>Genres : <?php echo $genres; ?>
                 </div>
                 <div id="details-info-description">
