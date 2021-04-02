@@ -259,6 +259,18 @@ input:focus{
     margin: 0.5rem;
 }
 
+#details-video{
+    margin-bottom: 1rem;
+}
+
+#details-video h2{
+    margin-bottom: 1rem;
+}
+
+#details-video iframe{
+    border-radius: 10px;
+}
+
 .horizontal-scroll{
     display: flex;
     flex-direction: row;
@@ -280,6 +292,11 @@ input:focus{
     max-width: 185px;
     padding: 1.5rem;
 }
+
+.horizontal-scroll article:first-of-type{
+    padding-left: 0;
+}
+
 .horizontal-scroll article h3{
     text-overflow: ellipsis;
     overflow-x: hidden;

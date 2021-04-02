@@ -143,11 +143,35 @@ if(isset($media->poster_path)){
     if(isset($media->videos->results[0])){
         $video = $media->videos->results[0] ;
         echo "<article id=\"details-video\">\n";
-        echo "\t<h3>Bande annonce</h3>\n";
-        echo "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/".$video->key."?controls=0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
-        echo "</article>";
+        echo "\t<h2>Bande annonce</h2>\n";
+        echo "\t<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/".$video->key."?controls=0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n";
+        echo "</article>\n";
     }
 ?>
+        <section id="tendances">
+            <h2>Associés à <?php echo $title; ?></h2>
+            <div class="horizontal-scroll">
+<?php
+$similars = $media->similar->results;
+foreach($similars as $similar){
+    if ($type == "movie") {
+        $title = $similar->title;
+        $date = $similar->release_date;
+    } else {
+        $title = $similar->name;
+        $date = $similar->first_air_date;
+    }
+    echo "<a href=\"./details.php?id=" . $similar->id . "&amp;type=". $type ."\">\n";
+    echo "<article id=\"similar-". $similar->id ."\">\n";
+    echo "\t<img src=\"https://image.tmdb.org/t/p/w185". $similar->poster_path ."\" alt=\"Affiche de ". $title ."\"/>\n";
+    echo "\t<h3>". $title ."</h3>\n";
+    echo "\t\t<p>" . strftime("%d %b %Y", date_timestamp_get(date_create($date))) . "</p>\n";
+    echo "</article>\n";
+    echo "</a>\n";
+}
+?>
+            </div>
+        </section>
     </main>
 <?php
     require './include/footer.inc.php';
