@@ -139,6 +139,15 @@ if(isset($media->poster_path)){
 ?>
             </aside>
         </section>
+<?php
+    if(isset($media->videos->results[0])){
+        $video = $media->videos->results[0] ;
+        echo "<article id=\"details-video\">\n";
+        echo "\t<h3>Bande annonce</h3>\n";
+        echo "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/".$video->key."?controls=0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
+        echo "</article>";
+    }
+?>
     </main>
 <?php
     require './include/footer.inc.php';
