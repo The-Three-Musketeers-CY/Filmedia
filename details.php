@@ -53,38 +53,77 @@ if(isset($media->poster_path)){
             <a href="./">Retour à l'accueil</a>
             <p>301 vues</p>
         </div>
-        <section>
+        <section id="details">
             <img src="<?php echo $src; ?>" width="300" alt="Affiche de <?php echo $title; ?>"/>
-            <h2><?php echo $title; ?></h2>
-            <p><?php echo $date; ?></p>
-            <p>Genres : <?php echo $genres; ?>
-            <p><?php echo $media->overview; ?></p>
-            <article>
-                <h3>Disponible sur :</h3>
+            <div id="details-info">
+                <div id="details-info-title">
+                    <h2><?php echo $title; ?></h2>
+                    <p><?php echo strftime("%d %b %Y", date_timestamp_get(date_create($date))); ?></p>
+                    <p>Genres : <?php echo $genres; ?>
+                </div>
+                <div id="details-info-description">
+                    <p><?php echo $media->overview; ?></p>
+                </div>
 <?php
-if(isset($media->{"watch/providers"}->results->FR)){
-    $providers = $media->{"watch/providers"}->results->FR ;
-    if(isset($providers->buy)){
-        echo "<p>A l'achat</p>\n";
-        foreach($providers->buy as $provider){
-            echo "<img src=\"https://image.tmdb.org/t/p/w45". $provider->logo_path ."\" alt=\"logo de ". $provider->provider_name ."\"/>\n";
+    if(isset($media->{"watch/providers"}->results->FR)) {
+        $providers = $media->{"watch/providers"}->results->FR;
+
+        echo "<article id=\"details-provider\">\n";
+        echo "\t<h3>Disponible sur :</h3>\n";
+
+        if(isset($providers->buy)){
+            echo "\t\t<p>A l'achat</p>\n";
+            echo "\t\t<div class=\"provider-icon\">\n";
+            foreach($providers->buy as $provider) {
+                echo "\t\t\t<img src=\"https://image.tmdb.org/t/p/w45". $provider->logo_path ."\" alt=\"logo de ". $provider->provider_name ."\"/>\n";
+            }
+            echo "\t\t</div>\n";
         }
-    }
-    if(isset($providers->rent)){
-        echo "<p>A la location</p>\n";
-        foreach($providers->rent as $provider){
-            echo "<img src=\"https://image.tmdb.org/t/p/w45". $provider->logo_path ."\" alt=\"logo de ". $provider->provider_name ."\"/>\n";
+        if(isset($providers->rent)){
+            echo "\t\t<p>A la location</p>\n";
+            echo "\t\t<div class=\"provider-icon\">\n";
+            foreach($providers->rent as $provider){
+                echo "\t\t\t<img src=\"https://image.tmdb.org/t/p/w45". $provider->logo_path ."\" alt=\"logo de ". $provider->provider_name ."\"/>\n";
+            }
+            echo "\t\t</div>\n";
         }
-    }
-    if(isset($providers->flatrate)){
-        echo "<p>En streaming</p>\n";
-        foreach($providers->flatrate as $provider){
-            echo "<img src=\"https://image.tmdb.org/t/p/w45". $provider->logo_path ."\" alt=\"logo de ". $provider->provider_name ."\"/>\n";
+        if(isset($providers->flatrate)){
+            echo "\t\t<p>En streaming</p>\n";
+            echo "\t\t<div class=\"provider-icon\">\n";
+            foreach($providers->flatrate as $provider){
+                echo "\t\t\t<img src=\"https://image.tmdb.org/t/p/w45". $provider->logo_path ."\" alt=\"logo de ". $provider->provider_name ."\"/>\n";
+            }
+            echo "\t\t</div>\n";
         }
+
+        echo "</article>\n";
     }
-}
 ?>
-            </article>
+            </div>
+            <aside>
+<?php
+    if (isset($media->credits->cast)) {
+        $casts = $media->credits->cast;
+
+        echo "<h3>Distribution :</h3>\n";
+        echo "<div id=\"cast\">\n";
+
+        $i = 0;
+        while ($i < 4) {
+            $cast = $casts[$i];
+            echo "\t<article>\n";
+            echo "\t\t<img src=\"https://image.tmdb.org/t/p/w92". $cast->profile_path ."\" alt=\"Photo de ". $cast->name ."\"/>\n";
+            echo "\t\t<h4>". $cast->name ."</h4>\n";
+            echo "\t\t<p>". $cast->character ."</p>\n";
+            echo "\t</article>\n";
+            $i++;
+        }
+
+        echo "</div>\n";
+        
+    }
+?>
+            </aside>
         </section>
     </main>
 <?php

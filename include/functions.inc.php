@@ -58,7 +58,7 @@
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://api.themoviedb.org/3/movie/$movie?api_key=" . API_KEY . "&language=fr-FR&append_to_response=watch%2Fproviders,release_dates,similar,videos",
+        CURLOPT_URL => "https://api.themoviedb.org/3/movie/$movie?api_key=" . API_KEY . "&language=fr-FR&append_to_response=watch%2Fproviders,release_dates,similar,videos,credits",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
@@ -87,7 +87,7 @@
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://api.themoviedb.org/3/tv/$tv?api_key=" . API_KEY . "&language=fr-FR&append_to_response=watch%2Fproviders,release_dates,similar,videos",
+        CURLOPT_URL => "https://api.themoviedb.org/3/tv/$tv?api_key=" . API_KEY . "&language=fr-FR&append_to_response=watch%2Fproviders,release_dates,similar,videos,credits",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,

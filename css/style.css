@@ -11,6 +11,10 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+main {
+    margin: 1.5rem;
+}
+
 header{
     display: flex;
     flex-direction: row;
@@ -61,10 +65,6 @@ img {
     display: block;
 }
 
-section {
-    margin: 1rem;
-}
-
 form input[type="submit"]{
     letter-spacing: 2.5px;
     font-weight: 500;
@@ -72,7 +72,7 @@ form input[type="submit"]{
     background-color: #fff;
     border: none;
     border-radius: 0.5rem;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 20px 2px rgb(236, 236, 236);
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
@@ -195,13 +195,66 @@ input:focus{
     text-overflow: ellipsis;
 }
 
+#details{
+    display: flex;
+    flex-direction: row;
+}
+#details img{
+    border-radius: 20px;
+}
+
+#details-info{
+    padding: 1rem;
+    flex-grow: 2;
+}
+#details-info-title, #details-info-description{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+#details-info-description{
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#details-provider{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+#details-provider img{
+    border-radius: 10px;
+}
+
+#details aside {
+    padding: 1rem;
+}
+#details aside h3 {
+    text-align: center;
+}
+
+#cast {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#cast article {
+    margin: 1rem;
+}
+
+.provider-icon{
+    display: flex;
+    flex-direction: row;
+}
+.provider-icon * {
+    margin: 0.5rem;
+}
+
 .horizontal-scroll{
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
     overflow-y: hidden;
-    scrollbar-color: #0D2144 transparent;
-    scrollbar-width: thin;
 }
 .horizontal-scroll::-webkit-scrollbar-thumb{
     background-color: #0D2144;
