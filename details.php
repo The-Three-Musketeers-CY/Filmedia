@@ -109,7 +109,7 @@ if(isset($media->poster_path)){
         echo "<div id=\"cast\">\n";
 
         $i = 0;
-        while ($i < 4) {
+        while ($i < 4 && $i < count($casts)) {
             $cast = $casts[$i];
             echo "\t<article>\n";
             echo "\t\t<img src=\"https://image.tmdb.org/t/p/w92". $cast->profile_path ."\" alt=\"Photo de ". $cast->name ."\"/>\n";
