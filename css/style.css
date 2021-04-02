@@ -231,7 +231,6 @@ input:focus{
 }
 
 #details aside {
-    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -243,9 +242,11 @@ input:focus{
     grid-template-columns: 1fr 1fr;
 }
 #cast article {
-    margin: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 2rem;
 }
-#cast article p {
+#cast article p, #cast article h4 {
     max-width: 92px;
 }
 
