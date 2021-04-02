@@ -289,3 +289,7 @@ input:focus{
     border-radius: 20px;
     height: 278px;
 }
+
+#tmdb-logo {
+    width: 10em;
+}
