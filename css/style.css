@@ -315,3 +315,11 @@ input::placeholder{
     font-weight: bold;
     color: #c52138;
 }
+#back-stats a{
+    display: inline-flex;
+    white-space: nowrap;
+    align-items: center;
+}
+#back-stats a img{
+    margin-right: 0.5rem;
+}

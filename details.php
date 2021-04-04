@@ -63,7 +63,7 @@ if(isset($media->poster_path)){
 ?>
     <main>
         <div id="back-stats">
-            <a href="./"><i class="fas fa-long-arrow-alt-left"></i> Retour à l'accueil</a>
+            <a href="./"><img src="./img/back-arrow.svg" alt="Retour arrière" width="20" />Retour à l'accueil</a>
             <p>301 vues</p>
         </div>
         <h1>Vue d'ensemble</h1>
