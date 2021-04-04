@@ -62,21 +62,17 @@ if(isset($media->poster_path)){
 }
 ?>
     <main>
-        <h1>Vue d'ensemble</h1>
         <div id="back-stats">
-            <a href="./">Retour à l'accueil</a>
+            <a href="./"><i class="fas fa-long-arrow-alt-left"></i> Retour à l'accueil</a>
             <p>301 vues</p>
         </div>
+        <h1>Vue d'ensemble</h1>
         <section id="details">
             <img src="<?php echo $src; ?>" width="300" alt="Affiche de <?php echo $title; ?>"/>
             <div id="details-info">
                 <div id="details-info-title">
                     <h2><?php echo $title; ?></h2>
-<?php
-    if (isset($media->homepage) && !empty($media->homepage)) {
-        echo "<a href=\"". $media->homepage ."\">Voir plus...</a>";
-    }
-?>
+
                     
                     <p><?php echo $displayDate; ?></p>
                     <p>Genres : <?php echo $genres; ?>
@@ -115,6 +111,14 @@ if(isset($media->poster_path)){
             }
             echo "\t\t</div>\n";
         }
+        if(isset($providers->ads)){
+            echo "\t\t<p>En streaming</p>\n";
+            echo "\t\t<div class=\"provider-icon\">\n";
+            foreach($providers->ads as $provider){
+                echo "\t\t\t<img src=\"https://image.tmdb.org/t/p/w45". $provider->logo_path ."\" alt=\"logo de ". $provider->provider_name ."\"/>\n";
+            }
+            echo "\t\t</div>\n";
+        }
 
         echo "</article>\n";
     }
@@ -125,7 +129,7 @@ if(isset($media->poster_path)){
     if (isset($media->credits->cast)) {
         $casts = $media->credits->cast;
 
-        echo "<h3>Distribution :</h3>\n";
+        echo "<h3>Tête d'affiche :</h3>\n";
         echo "<div id=\"cast\">\n";
 
         $i = 0;
@@ -146,13 +150,20 @@ if(isset($media->poster_path)){
             </aside>
         </section>
 <?php
-    if(isset($media->videos->results[0])){
-        $video = $media->videos->results[0] ;
-        echo "<article id=\"details-video\">\n";
-        echo "\t<h2>Bande annonce</h2>\n";
-        echo "\t<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/".$video->key."?controls=0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n";
-        echo "</article>\n";
-    }
+    $i = 0;
+    $found = false;
+    while($i < count($media->videos->results) && $found == false) {
+        $video = $media->videos->results[$i];
+        if ($video->type == "Trailer") {
+            echo "<article id=\"details-video\">\n";
+            echo "\t<h2>Bande annonce</h2>\n";
+            echo "\t<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/".$video->key."?controls=0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n";
+            echo "</article>\n";
+            $found = true;
+        }
+        $i++;
+    } 
+    
 ?>
         <section id="tendances">
             <h2>Associés à <?php echo $title; ?></h2>

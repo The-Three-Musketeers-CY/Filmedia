@@ -50,10 +50,10 @@ h1, h2{
     font-family: 'Montserrat', sans-serif;
 }
 h1{
-    margin-top: 2rem;
+    margin-bottom: 2rem;
     text-align: center;
 }
-h2{
+h2, h3 {
     color: #0D2144;
 }
 
@@ -76,42 +76,24 @@ img {
 form input[type="submit"]{
     letter-spacing: 2.5px;
     font-weight: 500;
-    color: #000;
-    background-color: #fff;
     border: none;
     border-radius: 0.5rem;
-    box-shadow: 0px 0px 20px 2px rgb(236, 236, 236);
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
+    background-color: #c52138;
+    color: #fff;
+    padding: 0.75rem;
 }
 form input[type="submit"]:hover{
-    background-color: #c52138;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-    color: #fff;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
+
 input:focus{
     outline: none;
 }
-
-input{
-    color: rgba(55, 65, 81, 1);
-    padding-top: 0.625rem;
-    padding-bottom: 0.625rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    border-style: none;
-    border-radius: 0.5rem;
-    background-color: rgba(243, 244, 246, 1);
-    margin: 0;
-}
-input:focus{
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-    background-color: rgba(229, 231, 235, 1);
+input::placeholder{
+    opacity: 0.8;
 }
 
 #logo{
@@ -165,16 +147,17 @@ input:focus{
     padding: 1rem;
     border: none;
     border-radius: 20px;
-    box-shadow: 0px 0px 20px 10px rgb(236, 236, 236);
+    background-color: #0D2144;
+    color: white;
 }
 
 #search-bar-reduce{
     width: 20rem;
-    background-color: white;
+    background-color: #0D2144;
+    color: white;
     padding: 0.65rem;
     border: none;
     border-radius: 15px;
-    box-shadow: 0px 0px 20px 2px rgb(236, 236, 236);
 }
 
 #results article img{
@@ -270,6 +253,7 @@ input:focus{
 }
 
 #details-video{
+    margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
@@ -295,18 +279,18 @@ input:focus{
     width: 7px;
     height: 7px;
 }
+.horizontal-scroll a {
+    margin: 1rem;
+}
+.horizontal-scroll a:first-of-type{
+    margin-left: 0;
+}
 .horizontal-scroll article{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     max-width: 185px;
-    padding: 2rem;
 }
-
-.horizontal-scroll article:first-of-type{
-    padding-left: 0;
-}
-
 .horizontal-scroll article h3{
     text-overflow: ellipsis;
     overflow-x: hidden;
@@ -319,4 +303,15 @@ input:focus{
 
 #tmdb-logo {
     width: 10em;
+}
+
+#back-stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem;
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #c52138;
 }
