@@ -124,30 +124,36 @@ if(isset($media->poster_path)){
     }
 ?>
             </div>
-            <aside>
 <?php
-    if (isset($media->credits->cast)) {
+    if (isset($media->credits->cast) && count($media->credits->cast) > 0) {
         $casts = $media->credits->cast;
 
-        echo "<h3>Tête d'affiche :</h3>\n";
-        echo "<div id=\"cast\">\n";
+        echo "<aside>\n";
+
+        echo "\t<h3>Tête d'affiche :</h3>\n";
+        echo "\t<div id=\"cast\">\n";
 
         $i = 0;
         while ($i < 4 && $i < count($casts)) {
             $cast = $casts[$i];
-            echo "\t<article>\n";
-            echo "\t\t<img src=\"https://image.tmdb.org/t/p/w92". $cast->profile_path ."\" alt=\"Photo de ". $cast->name ."\"/>\n";
-            echo "\t\t<h4>". $cast->name ."</h4>\n";
-            echo "\t\t<p>". $cast->character ."</p>\n";
-            echo "\t</article>\n";
+            echo "\t\t<article>\n";
+            if(isset($cast->profile_path)){
+                echo "\t\t<img src=\"https://image.tmdb.org/t/p/w92". $cast->profile_path ."\" alt=\"Photo de ". $cast->name ."\"/>\n";
+            }else{
+                echo "\t\t<img src=\"./img/no-image.svg\" width=\"92\" alt=\"no image\"/>\n";
+            }
+            echo "\t\t\t<h4>". $cast->name ."</h4>\n";
+            echo "\t\t\t<p>". $cast->character ."</p>\n";
+            echo "\t\t</article>\n";
             $i++;
         }
 
-        echo "</div>\n";
+        echo "\t</div>\n";
+
+        echo "</aside>\n";
         
     }
 ?>
-            </aside>
         </section>
 <?php
     $i = 0;
@@ -157,19 +163,22 @@ if(isset($media->poster_path)){
         if ($video->type == "Trailer") {
             echo "<article id=\"details-video\">\n";
             echo "\t<h2>Bande annonce</h2>\n";
-            echo "\t<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/".$video->key."?controls=0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n";
+            echo "\t<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/".$video->key."\" title=\"Bande annonce de ". $title ."\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n";
             echo "</article>\n";
             $found = true;
         }
         $i++;
-    } 
-    
+    }
 ?>
-        <section id="tendances">
-            <h2>Associés à <?php echo $title; ?></h2>
-            <div class="horizontal-scroll">
 <?php
 $similars = $media->similar->results;
+
+if (count($similars) > 0) {
+    echo "<section id=\"tendances\">\n";
+    echo "\t<h2>Associés à $title</h2>\n";
+    echo "\t<div class=\"horizontal-scroll\"\n>";
+}
+
 foreach($similars as $similar){
     if ($type == "movie") {
         $title = $similar->title;
@@ -178,17 +187,20 @@ foreach($similars as $similar){
         $title = $similar->name;
         $date = $similar->first_air_date;
     }
-    echo "<a href=\"./details.php?id=" . $similar->id . "&amp;type=". $type ."\">\n";
-    echo "<article id=\"similar-". $similar->id ."\">\n";
-    echo "\t<img src=\"https://image.tmdb.org/t/p/w185". $similar->poster_path ."\" alt=\"Affiche de ". $title ."\"/>\n";
-    echo "\t<h3>". $title ."</h3>\n";
-    echo "\t\t<p>" . strftime("%d %b %Y", date_timestamp_get(date_create($date))) . "</p>\n";
-    echo "</article>\n";
-    echo "</a>\n";
+    echo "\t\t<a href=\"./details.php?id=" . $similar->id . "&amp;type=". $type ."\">\n";
+    echo "\t\t\t<article id=\"similar-". $similar->id ."\">\n";
+    echo "\t\t\t\t<img src=\"https://image.tmdb.org/t/p/w185". $similar->poster_path ."\" alt=\"Affiche de ". $title ."\"/>\n";
+    echo "\t\t\t\t<h3>". $title ."</h3>\n";
+    echo "\t\t\t\t<p>" . strftime("%d %b %Y", date_timestamp_get(date_create($date))) . "</p>\n";
+    echo "\t\t\t</article>\n";
+    echo "\t\t</a>\n";
+}
+
+if (count($similars) > 0) {
+    echo "\t</div>\n";
+    echo "</section>\n";
 }
 ?>
-            </div>
-        </section>
     </main>
 <?php
     require './include/footer.inc.php';

@@ -73,6 +73,10 @@ img {
     display: block;
 }
 
+iframe{
+    border: none;
+}
+
 form input[type="submit"]{
     letter-spacing: 2.5px;
     font-weight: 500;
@@ -94,6 +98,7 @@ input:focus{
 }
 input::placeholder{
     opacity: 0.8;
+    color: white;
 }
 
 #logo{
@@ -149,12 +154,14 @@ input::placeholder{
     border-radius: 20px;
     background-color: #0D2144;
     color: white;
+    opacity: 0.85;
 }
 
 #search-bar-reduce{
     width: 20rem;
     background-color: #0D2144;
     color: white;
+    opacity: 0.85;
     padding: 0.65rem;
     border: none;
     border-radius: 15px;

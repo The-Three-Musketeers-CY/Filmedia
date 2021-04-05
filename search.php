@@ -73,7 +73,7 @@ foreach($medias as $media){
         if(isset($media->profile_path)){
             echo "\t\t<img src=\"https://image.tmdb.org/t/p/w92". $media->profile_path ."\" alt=\"Photo de ". $media->name ."\"/>\n";
         }else{
-            echo "\t\t<img src=\"./img/no-image.svg\" width=\"154\" alt=\"no image\"/>\n";
+            echo "\t\t<img src=\"./img/no-image.svg\" width=\"92\" alt=\"no image\"/>\n";
         }
         echo "\t</aside>\n";
         echo "\t<div class=\"result-info\">\n";
