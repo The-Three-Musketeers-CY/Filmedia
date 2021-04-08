@@ -64,7 +64,11 @@ foreach($credits as $credit){
     }
     echo "\t\t<a href=\"./details.php?id=" . $credit->id . "&amp;type=". $credit->media_type ."\">\n";
     echo "\t\t\t<article id=\"credit-". $credit->id ."\">\n";
-    echo "\t\t\t\t<img src=\"https://image.tmdb.org/t/p/w185". $credit->poster_path ."\" alt=\"Affiche de ". $title ."\"/>\n";
+    if(isset($credit->poster_path)){
+        echo "\t\t\t\t<img src=\"https://image.tmdb.org/t/p/w185". $credit->poster_path ."\" alt=\"Affiche de ". $title ."\"/>\n";
+    }else{
+        echo "\t\t\t\t<img src=\"./img/no-image.svg\" alt=\"Affiche de ". $title ."\"/>\n";
+    }
     echo "\t\t\t\t<h3>". $title ."</h3>\n";
     echo "\t\t\t\t<p>" . strftime("%d %b %Y", date_timestamp_get(date_create($date))) . "</p>\n";
     echo "\t\t\t</article>\n";

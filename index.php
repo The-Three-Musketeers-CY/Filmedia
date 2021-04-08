@@ -15,15 +15,16 @@
             </form>
 <?php
     if (isset($lastMedia)) {
-        echo "<article>\n";
-        echo "\t<h3 style=\"text-align: center;\">Dernière recherche</h3>\n";
-        echo "\t<div id=\"last-film\">\n";
-        echo "\t\t<img src=\"https://image.tmdb.org/t/p/w92". $lastMedia['poster'] ."\" alt=\"". $lastMedia['name'] . "\" />\n";
-        echo "\t\t<div id=\"last-film-info\">\n";
-        echo "\t\t<strong>" . $lastMedia['name'] ."</strong>\n";
-        echo "\t\t<p>Consulté le " . $lastMedia['date'] . "</p>\n";
+        echo "\t<h3 style=\"text-align: center;\">Dernière visite</h3>\n";
+        echo "\t<a href=\"./details.php?id=" . $lastMedia['id'] . "&amp;type=". $lastMedia['type'] ."\">\n";
+        echo "\t\t<div id=\"last-film\">\n";
+        echo "\t\t\t<img src=\"https://image.tmdb.org/t/p/w92". $lastMedia['poster'] ."\" alt=\"". $lastMedia['name'] . "\" />\n";
+        echo "\t\t\t<div id=\"last-film-info\">\n";
+        echo "\t\t\t<strong>" . $lastMedia['name'] ."</strong>\n";
+        echo "\t\t\t<p>Consulté le " . $lastMedia['date'] . "</p>\n";
+        echo "\t\t\t</div>\n";
         echo "\t\t</div>\n";
-        echo "\t</div>\n";
+        echo "\t</a>\n";
         echo "</article>\n";
     }
 ?>

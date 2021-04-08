@@ -109,15 +109,17 @@ if(isset($media->poster_path)){
         $i = 0;
         while ($i < 4 && $i < count($casts)) {
             $cast = $casts[$i];
-            echo "\t\t<article>\n";
+            echo "\t\t<a href=\"./details.php?id=" . $cast->id . "&amp;type=person\">\n";
+            echo "\t\t\t<article>\n";
             if(isset($cast->profile_path)){
-                echo "\t\t<img src=\"https://image.tmdb.org/t/p/w92". $cast->profile_path ."\" alt=\"Photo de ". $cast->name ."\"/>\n";
+                echo "\t\t\t\t<img src=\"https://image.tmdb.org/t/p/w92". $cast->profile_path ."\" alt=\"Photo de ". $cast->name ."\"/>\n";
             }else{
-                echo "\t\t<img src=\"./img/no-image.svg\" width=\"92\" alt=\"no image\"/>\n";
+                echo "\t\t\t\t<img src=\"./img/no-image.svg\" width=\"92\" alt=\"no image\"/>\n";
             }
-            echo "\t\t\t<h4>". $cast->name ."</h4>\n";
-            echo "\t\t\t<p>". $cast->character ."</p>\n";
-            echo "\t\t</article>\n";
+            echo "\t\t\t\t<h4>". $cast->name ."</h4>\n";
+            echo "\t\t\t\t<p>". $cast->character ."</p>\n";
+            echo "\t\t\t</article>\n";
+            echo "\t\t</a>\n";
             $i++;
         }
 
