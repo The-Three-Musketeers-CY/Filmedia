@@ -28,13 +28,14 @@ switch ($type) {
 if ($type == "movie") {
     $name = $media->title;
     $poster = $media->poster_path;
-} else {
+}else if ($type == "person") {
+    $name = $media->name;
+    $poster = $media->profile_path;
+}else {
     $name = $media->name;
     $poster = $media->poster_path;
 }
-if ($type == "person") {
-    $poster = $media->profile_path;
-}
+
 setcookie("last_media_consulted", json_encode(["id" => $id, "name" => $name, "type" => $type, "poster" => $poster, "date" => date("d/m/Y")]), time() + (60*60*24*30), "/projet");
 
 if ($type != "person") {
