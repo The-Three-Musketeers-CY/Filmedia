@@ -336,3 +336,15 @@ input::placeholder{
 #back-stats a img{
     margin-right: 0.5rem;
 }
+
+#last-film{
+    display: flex;
+    flex-direction: row;
+}
+#last-film img{
+    border-radius: 20px;
+}
+#last-film-info{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}

@@ -25,6 +25,18 @@ switch ($type) {
         exit();
 }
 
+if ($type == "movie") {
+    $name = $media->title;
+    $poster = $media->poster_path;
+} else {
+    $name = $media->name;
+    $poster = $media->poster_path;
+}
+if ($type == "person") {
+    $poster = $media->profile_path;
+}
+setcookie("last_media_consulted", json_encode(["id" => $id, "name" => $name, "poster" => $poster, "date" => date("d/m/Y")]), time() + (60*60*24*30), "/projet");
+
 if ($type != "person") {
     include './include/details_movie_tv.inc.php';
 } else {

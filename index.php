@@ -1,5 +1,9 @@
 <?php
     require './include/header.inc.php';
+
+    if (isset($_COOKIE['last_media_consulted']) && !empty($_COOKIE['last_media_consulted'])) {
+        $lastMedia = json_decode($_COOKIE['last_media_consulted'], true);
+    }
 ?>
     <main>
         <h1>Filmedia - Trouvez ce qui vous plait !</h1>
@@ -9,12 +13,20 @@
                 <input type="text" name="q" id="search-bar" placeholder="Films, séries, ..." />
                 <input type="submit" value="Rechercher" />
             </form>
-            <!--
-            <article id="last-film">
-                <h3>Dernière recherche</h3>
-                ...
-            </article>
-            -->
+<?php
+    if (isset($lastMedia)) {
+        echo "<article>\n";
+        echo "\t<h3 style=\"text-align: center;\">Dernière recherche</h3>\n";
+        echo "\t<div id=\"last-film\">\n";
+        echo "\t\t<img src=\"https://image.tmdb.org/t/p/w92". $lastMedia['poster'] ."\" alt=\"". $lastMedia['name'] . "\" />\n";
+        echo "\t\t<div id=\"last-film-info\">\n";
+        echo "\t\t<strong>" . $lastMedia['name'] ."</strong>\n";
+        echo "\t\t<p>Consulté le " . $lastMedia['date'] . "</p>\n";
+        echo "\t\t</div>\n";
+        echo "\t</div>\n";
+        echo "</article>\n";
+    }
+?>
         </section>
         <section id="actuals-media">
             <h2>Films à l'affiche</h2>
