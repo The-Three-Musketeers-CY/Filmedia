@@ -225,6 +225,12 @@ input::placeholder{
     border-radius: 10px;
 }
 
+#details-social img{
+    display: inline;
+    margin: 0.5rem;
+    border-radius: 0;
+}
+
 #details aside {
     text-align: center;
 }

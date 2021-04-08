@@ -116,7 +116,7 @@
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://api.themoviedb.org/3/person/$person?api_key=" . API_KEY . "&language=fr-FR",
+        CURLOPT_URL => "https://api.themoviedb.org/3/person/$person?api_key=" . API_KEY . "&language=fr-FR&append_to_response=combined_credits,external_ids",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
