@@ -15,9 +15,10 @@
             </form>
 <?php
     if (isset($lastMedia)) {
+        echo "<article id=\"last-film\">\n";
         echo "\t<h3 style=\"text-align: center;\">Dernière visite</h3>\n";
         echo "\t<a href=\"./details.php?id=" . $lastMedia['id'] . "&amp;type=". $lastMedia['type'] ."\">\n";
-        echo "\t\t<div id=\"last-film\">\n";
+        echo "\t\t<div id=\"last-film-box\">\n";
         echo "\t\t\t<img src=\"https://image.tmdb.org/t/p/w92". $lastMedia['poster'] ."\" alt=\"". $lastMedia['name'] . "\" />\n";
         echo "\t\t\t<div id=\"last-film-info\">\n";
         echo "\t\t\t<strong>" . $lastMedia['name'] ."</strong>\n";
