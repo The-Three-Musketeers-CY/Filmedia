@@ -22,8 +22,8 @@
         <a href="./"><img id="logo" src="./img/logo.png" alt="Filmedia" /></a>
         <nav id="navbar">
             <ul>
-                <li><a href="#">Films</a></li>
-                <li><a href="#">Séries</a></li>
+                <li><a href="./movies.php">Films</a></li>
+                <li><a href="./series.php">Séries</a></li>
                 <!-- ... -->
             </ul>
         </nav>
