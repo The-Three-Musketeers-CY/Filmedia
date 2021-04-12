@@ -1,6 +1,8 @@
 <?php
 
-$displayDate = strftime("%d %b %Y", date_timestamp_get(date_create($media->birthday)));
+if (isset($media->birthday) && !empty($media->birthday)) {
+    $displayDate = strftime("%d %b %Y", date_timestamp_get(date_create($media->birthday)));
+}
 
 if(isset($media->profile_path)){
     $src = "https://image.tmdb.org/t/p/w300". $media->profile_path;
@@ -20,7 +22,11 @@ if(isset($media->profile_path)){
             <div id="details-info">
                 <div id="details-info-title">
                     <h2><?php echo $media->name; ?></h2>
-                    <p>Date de naissance : <?php echo $displayDate; ?></p>
+<?php
+    if (isset($displayDate)) {
+        echo "<p>Date de naissance : ".$displayDate."</p>";
+    }
+?>               
                 </div>
                 <div id="details-info-description">
                     <p><?php echo $media->biography; ?></p>
