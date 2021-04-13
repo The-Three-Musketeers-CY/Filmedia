@@ -24,4 +24,17 @@
         }
 
         return $count;
-    } 
+    }
+
+    function getVisits(): array {
+        $array = [];
+        if (($handle = fopen("../data/visits.csv", "r")) !== FALSE) {
+            while (($data = fgetcsv($handle, 0, ";")) !== FALSE) {
+                array_push($array, $data);
+            }
+
+            fclose($handle);
+        }
+
+        return $array;
+    }
