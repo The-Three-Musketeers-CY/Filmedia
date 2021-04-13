@@ -39,7 +39,7 @@
     $graph->Add($bplot);
 
     $bplot->SetColor("white");
-    $bplot->SetFillColor("#cc1111");
+    $bplot->SetFillColor("#c52138");
 
     $graph->title->Set("Nombre de visites par média");
 
