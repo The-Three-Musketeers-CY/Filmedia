@@ -1,15 +1,12 @@
 <?php
     require './include/header.inc.php';
 ?>
-    <main>
+    <main style="display: flex; flex-direction: column; align-items: center;">
         <h1>Statistiques</h1>
-        <article>
-            <h2>Test</h2>
-            <figure>
-                <img src="./include/visits_stats_image.php" alt="Graphique représentant le nombre de visites par média" />
-                <figcaption>Nombre de visites par média</figcaption>
-            </figure>
-        </article>
+        <figure style="text-align: center;">
+            <img src="./include/visits_stats_image.php" alt="Graphique représentant le nombre de visites par média" />
+            <figcaption>Nombre de visites par média</figcaption>
+        </figure>
     </main>
 <?php
     require './include/footer.inc.php';

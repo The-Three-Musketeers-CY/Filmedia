@@ -41,6 +41,12 @@ footer{
 footer p {
     margin: 0.5rem;
 }
+footer a{
+    color: #15b7db;
+}
+footer a:hover{
+    color: white;
+}
 
 main{
     flex-grow: 2;
@@ -75,6 +81,11 @@ img {
 
 iframe{
     border: none;
+}
+
+figcaption {
+    font-weight: bold;
+    color: #0D2144;
 }
 
 input[type="submit"]{
