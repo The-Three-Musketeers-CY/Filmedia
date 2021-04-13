@@ -14,7 +14,7 @@ if(isset($media->profile_path)){
 <main>
         <div id="back-stats">
             <a href="./"><img src="./img/back-arrow.svg" alt="Retour arrière" width="20" />Retour à l'accueil</a>
-            <p>301 vues</p>
+            <p><?php echo $count; ?> vues</p>
         </div>
         <h1>Vue d'ensemble</h1>
         <section id="details">

@@ -1,6 +1,7 @@
 <?php
 
 require './include/header.inc.php';
+require_once './include/utils.inc.php';
 
 if(isset($_GET['id']) && !empty($_GET['id']) && isset($_GET['type']) && !empty($_GET['type'])) {
     $id = htmlspecialchars($_GET['id']);
@@ -37,6 +38,7 @@ if ($type == "movie") {
 }
 
 setcookie("last_media_consulted", json_encode(["id" => $id, "name" => $name, "type" => $type, "poster" => $poster, "date" => date("d/m/Y")]), time() + (60*60*24*30), "/projet");
+$count = readVisits($id, $name, $type);
 
 if ($type != "person") {
     include './include/details_movie_tv.inc.php';
