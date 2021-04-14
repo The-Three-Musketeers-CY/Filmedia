@@ -1,6 +1,7 @@
 # Filmedia
 
 Filmedia est un projet réalisé par William DENOYER & Benjamin WALLETH en L2 Informatique - CMI SIC à CY Cergy Paris Université dans le cadre du module de **Développement Web 2020/2021**.
+
 ![CY Cergy Paris Université](https://upload.wikimedia.org/wikipedia/fr/thumb/6/69/Logo_CY_Cergy_Paris_Universit%C3%A9.svg/129px-Logo_CY_Cergy_Paris_Universit%C3%A9.svg.png)
 
 Ce projet a été réalisé en PHP, HTML5 & CSS3.
