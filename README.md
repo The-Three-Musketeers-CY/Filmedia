@@ -26,7 +26,7 @@ Ce projet a été évalué sur ces différents critères :
 
 ## Hébergement
 
-Pour mettre en ligne ce projet, nous avons utilisé une solution d'hébergement web utilisant Apache. Nous avons choisi **[AlwaysData](https://alwaysdata.net)** qui est une solution gratuite et stable.
+Pour mettre en ligne ce projet, nous avons utilisé une solution d'hébergement web utilisant Apache. Nous avons choisi **[AlwaysData](https://alwaysdata.com)** qui est une solution gratuite et stable.
 
 ## Stockage & Cookies
 
