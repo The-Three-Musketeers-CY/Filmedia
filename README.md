@@ -28,6 +28,10 @@ Ce projet a été évalué sur ces différents critères :
 
 Pour mettre en ligne ce projet, nous avons utilisé une solution d'hébergement web utilisant Apache. Nous avons choisi **[AlwaysData](https://alwaysdata.com)** qui est une solution gratuite et stable.
 
+## API
+
+L'API utilisée pour récupérer les différentes données sur les films & séries est **[The Movie Database](https://www.themoviedb.org/?language=fr)**. Elle est gratuite et utilise le format JSON.
+
 ## Stockage & Cookies
 
 Afin de permettre une meilleur ergonomie et expérience utilisateur, ce site utilise :
