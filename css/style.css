@@ -164,7 +164,7 @@ input::placeholder{
 #search-bar{
     margin-top: 1rem;
     margin-bottom: 1rem;
-    width: 50rem;
+    width: 50vw;
     padding: 1rem;
     border: none;
     border-radius: 20px;
