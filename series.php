@@ -12,8 +12,10 @@ foreach($trends as $trend){
     echo "<a href=\"./details.php?id=" . $trend->id . "&amp;type=tv\">\n";
     echo "\t<article id=\"trend-". $trend->id ."\">\n";
     echo "\t\t<img src=\"https://image.tmdb.org/t/p/w185". $trend->poster_path ."\" alt=\"Affiche de ". $trend->name ."\"/>\n";
-    echo "\t\t<h3>". $trend->name ."</h3>\n";
-    echo "\t\t<p>" . strftime("%d %b %Y", date_timestamp_get(date_create($trend->first_air_date))) . "</p>\n";
+    echo "\t\t<div class=\"info\">\n";
+    echo "\t\t\t<h3>". $trend->name ."</h3>\n";
+    echo "\t\t\t<p>" . strftime("%d %b %Y", date_timestamp_get(date_create($trend->first_air_date))) . "</p>\n";
+    echo "\t\t</div>\n";
     echo "\t</article>\n";
     echo "</a>\n";
 }
@@ -33,8 +35,10 @@ foreach($trends as $trend){
             echo "<a href=\"./details.php?id=" . $serie->id . "&amp;type=tv\">\n";
             echo "\t<article>\n";
             echo "\t\t<img src=\"https://image.tmdb.org/t/p/w185".$serie->poster_path."\" alt=\"Affiche de ".$serie->name."\"/>\n";
-            echo "\t\t<h3>".$serie->name."</h3>\n";
-            echo "\t\t<p>" . strftime("%d %b %Y", date_timestamp_get(date_create($serie->first_air_date))) . "</p>\n";
+            echo "\t\t<div class=\"info\">\n";
+            echo "\t\t\t<h3>".$serie->name."</h3>\n";
+            echo "\t\t\t<p>" . strftime("%d %b %Y", date_timestamp_get(date_create($serie->first_air_date))) . "</p>\n";
+            echo "\t\t</div>\n";
             echo "\t</article>\n";
             echo "</a>\n";
         }

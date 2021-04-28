@@ -16,7 +16,7 @@ main {
 }
 
 section {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 header{
@@ -136,6 +136,7 @@ input::placeholder{
     flex-direction: column;
     align-items: center;
     padding: 3rem;
+    margin-bottom: 0;
 }
 
 #welcome-search form{
@@ -301,6 +302,7 @@ input::placeholder{
     flex-direction: row;
     overflow-x: scroll;
     overflow-y: hidden;
+    padding: 1rem;
 }
 .horizontal-scroll::-webkit-scrollbar-thumb{
     background-color: #0D2144;
@@ -312,15 +314,23 @@ input::placeholder{
 }
 .horizontal-scroll a {
     margin: 1rem;
+    
 }
 .horizontal-scroll a:first-of-type{
     margin-left: 0;
 }
+
 .horizontal-scroll article{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     max-width: 185px;
+    transition: 0.5s;
+    border-radius: 20px;
+}
+.horizontal-scroll article:hover{
+    transform: scale(1.125);
+    box-shadow: 0px 0px 20px 2px rgb(236, 236, 236);
 }
 .horizontal-scroll article h3{
     text-overflow: ellipsis;
@@ -330,6 +340,10 @@ input::placeholder{
 .horizontal-scroll article img{
     border-radius: 20px;
     height: 278px;
+}
+.horizontal-scroll .info {
+    padding: 0.5rem;
+    text-align: center;
 }
 
 #tmdb-logo {
