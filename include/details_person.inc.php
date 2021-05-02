@@ -45,8 +45,7 @@ if(isset($media->profile_path)){
         }
         echo "</article>\n";
     }
-?>   
-                    </article> 
+?>    
                 </div>
             </div>
         </section>
@@ -69,7 +68,7 @@ foreach($credits as $credit){
         $date = $credit->first_air_date;
     }
     echo "\t\t<a href=\"./details.php?id=" . $credit->id . "&amp;type=". $credit->media_type ."\">\n";
-    echo "\t\t\t<article id=\"credit-". $credit->id ."\">\n";
+    echo "\t\t\t<article>\n";
     if(isset($credit->poster_path)){
         echo "\t\t\t\t<img src=\"https://image.tmdb.org/t/p/w185". $credit->poster_path ."\" alt=\"Affiche de ". $title ."\"/>\n";
     }else{

@@ -163,7 +163,7 @@ foreach($similars as $similar){
         $date = $similar->first_air_date;
     }
     echo "\t\t<a href=\"./details.php?id=" . $similar->id . "&amp;type=". $type ."\">\n";
-    echo "\t\t\t<article id=\"similar-". $similar->id ."\">\n";
+    echo "\t\t\t<article>\n";
     echo "\t\t\t\t<img src=\"https://image.tmdb.org/t/p/w185". $similar->poster_path ."\" alt=\"Affiche de ". $title ."\"/>\n";
     echo "\t\t\t\t<div class=\"info\">\n";
     echo "\t\t\t\t\t<h3>". $title ."</h3>\n";

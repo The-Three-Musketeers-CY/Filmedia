@@ -38,7 +38,7 @@
 $movies = getNowPlayingMovies();
 foreach($movies as $movie){
     echo "<a href=\"./details.php?id=" . $movie->id . "&amp;type=movie\">\n";
-    echo "\t<article id=\"nowplaying-".$movie->id."\">\n";
+    echo "\t<article>\n";
     if(isset($movie->poster_path)){
         echo "\t\t<img src=\"https://image.tmdb.org/t/p/w185". $movie->poster_path ."\" alt=\"Affiche de ". $movie->title ."\"/>\n";
     }else{
@@ -68,7 +68,7 @@ foreach($trends as $trend){
         $date = $trend->first_air_date;
     }
     echo "<a href=\"./details.php?id=" . $trend->id . "&amp;type=". $trend->media_type ."\">\n";
-    echo "<article id=\"trend-". $trend->id ."\">\n";
+    echo "<article>\n";
     if(isset($trend->poster_path)){
         echo "\t\t<img src=\"https://image.tmdb.org/t/p/w185". $trend->poster_path ."\" alt=\"Affiche de ". $title ."\"/>\n";
     }else{

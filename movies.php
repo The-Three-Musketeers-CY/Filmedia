@@ -12,7 +12,7 @@
 $trends = getWeekMoviesTrends();
 foreach($trends as $trend){
     echo "<a href=\"./details.php?id=" . $trend->id . "&amp;type=movie\">\n";
-    echo "\t<article id=\"trend-". $trend->id ."\">\n";
+    echo "\t<article>\n";
     if(isset($trend->poster_path)){
         echo "\t\t<img src=\"https://image.tmdb.org/t/p/w185". $trend->poster_path ."\" alt=\"Affiche de ". $trend->title ."\"/>\n";
     }else{
