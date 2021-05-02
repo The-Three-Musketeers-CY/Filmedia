@@ -8,8 +8,8 @@
             <li><a href="./search.php">&gt; Page de recherche</a></li>
             <li><a href="./movies.php">&gt; Films</a></li>
             <li><a href="./series.php">&gt; Séries</a></li>
-            <li><a href="./statistics.php">&gt; Statistiques</a></li>
-            <li><a href="./sitemap.php">&gt; Plan du site</a></li>
+            <li><a href="./statistics.php">Statistiques</a></li>
+            <li><a href="./sitemap.php">Plan du site</a></li>
         </ul>
     </main>
 <?php
