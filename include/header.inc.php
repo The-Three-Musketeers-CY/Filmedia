@@ -11,18 +11,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <?php 
     if(isset($page_description)){
-        echo "<meta name=\"description\" content=\"".$page_description."\" />";
+        echo "<meta name=\"description\" content=\"".$page_description."\" />\n";
     }else{
-        echo "<meta name=\"description\" content=\"Projet dev web\" />";
+        echo "<meta name=\"description\" content=\"Projet dev web\" />\n";
     }
 ?>      
     <meta name="author" content="Benjamin Walleth" />
     <meta name="author" content="William Denoyer" />
 <?php
     if(isset($page_title)){
-        echo "<title>".$page_title."</title>";
+        echo "<title>".$page_title."</title>\n";
     }else{
-        echo "<title>Filmedia - Trouvez ce qui vous plait !</title>";
+        echo "<title>Filmedia - Trouvez ce qui vous plait !</title>\n";
     }
 ?>
     <link rel="icon" href="./img/favicon.ico" />
