@@ -1,4 +1,5 @@
 <?php
+    $page_description = "Page d'accueil de Filmedia";
     require './include/header.inc.php';
 
     if (isset($_COOKIE['last_media_consulted']) && !empty($_COOKIE['last_media_consulted'])) {

@@ -10,6 +10,7 @@
         return $a[3];
     }, $visits);
 
+
     // Create the graph. These two calls are always required
     $graph = new Graph(1000,500,'auto');
     $graph->SetScale("textint");

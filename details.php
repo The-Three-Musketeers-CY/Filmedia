@@ -1,5 +1,7 @@
 <?php
 
+$page_title = "Filmedia - Page de détails" ;
+$page_description = "Accédez à tous les détails du média";
 require './include/header.inc.php';
 require_once './include/utils.inc.php';
 

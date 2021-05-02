@@ -1,4 +1,6 @@
 <?php
+    $page_title = "Filmedia - Toutes les séries";
+    $page_description = "Accédez à toutes les catégories de séries";
     require './include/header.inc.php';
 ?>
     <main>

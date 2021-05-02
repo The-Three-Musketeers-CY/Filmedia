@@ -1,4 +1,6 @@
 <?php
+    $page_title = "Filmedia - Tous les films" ;
+    $page_description = "Accédez à toutes les catégories de films";
     require './include/header.inc.php';
 ?>
     <main>

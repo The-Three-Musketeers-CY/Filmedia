@@ -1,4 +1,6 @@
 <?php
+    $page_title = "Filmedia - Statistiques" ;
+    $page_description = "Toutes les statistiques de visites de Filmedia";
     require './include/header.inc.php';
 ?>
     <main style="display: flex; flex-direction: column; align-items: center;">
