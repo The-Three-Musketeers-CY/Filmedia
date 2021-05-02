@@ -11,7 +11,11 @@ $trends = getWeekMoviesTrends();
 foreach($trends as $trend){
     echo "<a href=\"./details.php?id=" . $trend->id . "&amp;type=movie\">\n";
     echo "\t<article id=\"trend-". $trend->id ."\">\n";
-    echo "\t\t<img src=\"https://image.tmdb.org/t/p/w185". $trend->poster_path ."\" alt=\"Affiche de ". $trend->title ."\"/>\n";
+    if(isset($trend->poster_path)){
+        echo "\t\t<img src=\"https://image.tmdb.org/t/p/w185". $trend->poster_path ."\" alt=\"Affiche de ". $trend->title ."\"/>\n";
+    }else{
+        echo "\t\t<img src=\"./img/no-image.svg\" width=\"185\" alt=\"no image\"/>\n";
+    }
     echo "\t\t<div class=\"info\">\n";
     echo "\t\t\t<h3>". $trend->title ."</h3>\n";
     echo "\t\t\t<p>" . strftime("%d %b %Y", date_timestamp_get(date_create($trend->release_date))) . "</p>\n";
@@ -34,7 +38,11 @@ foreach($trends as $trend){
         foreach($movies as $movie){
             echo "<a href=\"./details.php?id=" . $movie->id . "&amp;type=movie\">\n";
             echo "\t<article>\n";
-            echo "\t\t<img src=\"https://image.tmdb.org/t/p/w185".$movie->poster_path."\" alt=\"Affiche de ".$movie->title."\"/>\n";
+            if(isset($movie->poster_path)){
+                echo "\t\t<img src=\"https://image.tmdb.org/t/p/w185". $movie->poster_path ."\" alt=\"Affiche de ". $movie->title ."\"/>\n";
+            }else{
+                echo "\t\t<img src=\"./img/no-image.svg\" width=\"185\" alt=\"no image\"/>\n";
+            }
             echo "\t\t<div class=\"info\">\n";
             echo "\t\t\t<h3>".$movie->title."</h3>\n";
             echo "\t\t\t<p>" . strftime("%d %b %Y", date_timestamp_get(date_create($movie->release_date))) . "</p>\n";

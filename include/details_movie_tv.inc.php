@@ -165,8 +165,10 @@ foreach($similars as $similar){
     echo "\t\t<a href=\"./details.php?id=" . $similar->id . "&amp;type=". $type ."\">\n";
     echo "\t\t\t<article id=\"similar-". $similar->id ."\">\n";
     echo "\t\t\t\t<img src=\"https://image.tmdb.org/t/p/w185". $similar->poster_path ."\" alt=\"Affiche de ". $title ."\"/>\n";
-    echo "\t\t\t\t<h3>". $title ."</h3>\n";
-    echo "\t\t\t\t<p>" . strftime("%d %b %Y", date_timestamp_get(date_create($date))) . "</p>\n";
+    echo "\t\t\t\t<div class=\"info\">\n";
+    echo "\t\t\t\t\t<h3>". $title ."</h3>\n";
+    echo "\t\t\t\t\t<p>" . strftime("%d %b %Y", date_timestamp_get(date_create($date))) . "</p>\n";
+    echo "\t\t\t\t</div>\n";
     echo "\t\t\t</article>\n";
     echo "\t\t</a>\n";
 }
