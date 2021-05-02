@@ -312,9 +312,8 @@ input::placeholder{
     width: 7px;
     height: 7px;
 }
-.horizontal-scroll a {
+.horizontal-scroll article {
     margin: 1rem;
-    
 }
 .horizontal-scroll a:first-of-type{
     margin-left: 0;
