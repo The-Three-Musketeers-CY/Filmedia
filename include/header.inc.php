@@ -25,10 +25,10 @@
         echo "<title>Filmedia - Trouvez ce qui vous plait !</title>";
     }
 ?>
-    
+    <link rel="icon" href="./img/favicon.ico" />
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto&display=swap" rel="stylesheet" />
 </head>
 <body>
     <header>
