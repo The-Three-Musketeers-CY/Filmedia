@@ -1,7 +1,7 @@
 <?php
     require './include/header.inc.php';
 ?>
-    <main>
+    <main style="display: flex; flex-direction: column; align-items: center;">
         <h1>Plan du site</h1>
         <ul id="sitemap_list">
             <li><a href="./">Page d'accueil</a></li>

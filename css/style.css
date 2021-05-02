@@ -383,9 +383,6 @@ input::placeholder{
 }
 
 #sitemap_list {
-    width: max-content;
-    margin-left: 45vw;
-    margin-right: 40vw;
     font-weight: bold;
     list-style: none;
 }
