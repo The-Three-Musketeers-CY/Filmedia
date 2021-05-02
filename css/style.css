@@ -381,3 +381,20 @@ input::placeholder{
     margin-bottom: 1rem;
     margin: 0.5rem;
 }
+
+#sitemap_list {
+    width: max-content;
+    margin-left: 45vw;
+    margin-right: 40vw;
+    font-weight: bold;
+    list-style: none;
+}
+#sitemap_list li {
+    margin: 0.5rem;
+}
+#sitemap_list a{
+    color: #0D2144;
+}
+#sitemap_list a:hover{
+    color: #c52138;
+}
