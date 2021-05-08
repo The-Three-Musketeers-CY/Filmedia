@@ -31,7 +31,7 @@ foreach($trends as $trend){
 <?php
     $genres = getTVGenres();
     foreach($genres as $genre){
-        echo "<section id=\"".$genre->name."\" style=\"margin-top:4rem; margin-bottom: 4rem;\">\n";
+        echo "<section style=\"margin-top:4rem; margin-bottom: 4rem;\">\n";
         echo "\t<h2>".$genre->name."</h2>\n";
         echo "\t<div class=\"horizontal-scroll\">\n";
 
