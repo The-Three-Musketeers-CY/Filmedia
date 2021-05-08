@@ -1,20 +1,27 @@
 <?php
 
-    function readVisits(string $id, string $name, string $type): int{
+    /**
+     * Fonction qui ajoute 1 vue à un média et qui récupère le nombre de vues du média
+     * @param string $id ID du média
+     * @param string $name Nom du média
+     * @param string $type Type du média (Film ou Série ou Personne)
+     * @return int Nombre de vues du média
+     */
+    function readVisits(string $id, string $name, string $type): int {
 
         $tempFile = fopen("./data/temp_visits.csv","w");
         $count = 1;
 
         if (($handle = fopen("./data/visits.csv", "r")) !== FALSE) {
             while (($data = fgetcsv($handle, 0, ";")) !== FALSE) {
-                if($data[0] == $id && $data[2] == $type){
+                if ($data[0] == $id && $data[2] == $type) {
                     $count = $data[3] + 1;
                     fputcsv($tempFile,[$data[0], $data[1], $data[2], $count], ";");
-                }else{
+                } else {
                     fputcsv($tempFile, $data, ";");
                 }
             }
-            if($count == 1) fputcsv($tempFile,[$id, $name, $type, 1], ";");
+            if ($count == 1) fputcsv($tempFile,[$id, $name, $type, 1], ";");
 
             fclose($tempFile);
             fclose($handle);
@@ -26,6 +33,10 @@
         return $count;
     }
 
+    /**
+     * Fonction qui récupère le nombre de vues des médias
+     * @return array Nombre de visites des médias
+     */
     function getVisits(): array {
         $array = [];
         if (($handle = fopen("../data/visits.csv", "r")) !== FALSE) {
@@ -39,20 +50,20 @@
         return $array;
     }
 
-     /**
-     * Fonction renvoie l'adresse IP du visiteur
-     * @return l'addresse IP du visiteur
+    /**
+     * Fonction qui renvoie l'adresse IP du visiteur
+     * @return string Addresse IP du visiteur
      */
-    function getIp(): string{
+    function getIp(): string {
         return $_SERVER['REMOTE_ADDR'];
     }
 
     /**
      * Fonction qui renvoie la position du visiteur
-     * @param l'adresse ip du visiteur
-     * @return tableaux de données de localisation, ville, département, pays
+     * @param  string $ip Adresse ip du visiteur
+     * @return array Tableaux de données de localisation, ville, département, pays
      */
-    function getPosition(string $ip): array{
+    function getPosition(string $ip): array {
   
         $curl = curl_init();
 
@@ -72,11 +83,11 @@
 
         curl_close($curl);
 
-        if(($response = simplexml_load_string($response))== false){
+        if (($response = simplexml_load_string($response))== false) {
             return [
                 "erreur" => "Trop de requêtes efféctuées !"
             ];
-        }else{
+        } else {
             return [
                 "city" => $response->geoplugin_city,
                 "dept" => $response->geoplugin_regionName,

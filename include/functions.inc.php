@@ -1,7 +1,15 @@
 <?php
 
+    /* Constantes */
+
     define("API_KEY","226d013400c6319b4053d6673cd936b3");
 
+    /* Fonctions */
+
+    /**
+     * Fonction qui retourne les films actuellement au cinéma en France
+     * @return array Tableau contenant les films actuellement au cinéma en France
+     */
     function getNowPlayingMovies(): array {
         $curl = curl_init();
 
@@ -28,6 +36,10 @@
         return $results;
     }
 
+    /**
+     * Fonction qui retourne les tendances de la semaine
+     * @return array Tableau contenant les tendances de la semaines
+     */
     function getWeekTrends(): array {
         $curl = curl_init();
 
@@ -54,7 +66,11 @@
         return $results;
     }
 
-    function getWeekTVTrends(){
+    /**
+     * Fonction qui retourne les séries en tendances
+     * @return array Tableau qui contient les séries en tendances
+     */
+    function getWeekTVTrends(): array {
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -80,7 +96,11 @@
         return $results;
     }
 
-    function getWeekMoviesTrends(){
+    /**
+     * Fonction qui retourne les films en tendances
+     * @return array Tableau qui contient les séries en tendances
+     */
+    function getWeekMoviesTrends(): array {
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -106,6 +126,10 @@
         return $results;
     }
 
+    /**
+     * Fonction qui retourne les détails d'un film
+     * @param int $movie ID du film
+     */
     function getMovieDetails(int $movie) {
         $curl = curl_init();
 
@@ -135,6 +159,10 @@
         return $response;
     }
 
+    /**
+     * Fonction qui retourne les détails d'une série
+     * @param int $movie ID de la série
+     */
     function getTVDetails(int $tv) {
         $curl = curl_init();
 
@@ -164,6 +192,10 @@
         return $response;
     }
 
+    /**
+     * Fonction qui retourne les détails d'une personne
+     * @param int $movie ID de la personne
+     */
     function getPersonDetails(int $person) {
         $curl = curl_init();
 
@@ -193,7 +225,12 @@
         return $response;
     }
 
-    function searchMedia(string $query) {
+    /**
+     * Fonction qui permet de rechercher un média
+     * @param string $query Query
+     * @return array Tableau contenant les résultats de recherche
+     */
+    function searchMedia(string $query): array {
         // Encoding $query to URL to avoid spaces
         $query = urlencode($query);
 
@@ -223,7 +260,11 @@
 
     }
 
-    function getMovieGenres(): array{
+    /**
+     * Fonction qui retourne les genres d'un film
+     * @return array Tableau contenant les genres d'un film
+     */
+    function getMovieGenres(): array {
 
         $curl = curl_init();
 
@@ -250,7 +291,11 @@
         return $results;
     }
 
-    function getTVGenres(): array{
+    /**
+     * Fonction qui retourne les genres d'une série
+     * @return array Tableau contenant les genres d'une série
+     */
+    function getTVGenres(): array {
 
         $curl = curl_init();
 
@@ -277,7 +322,12 @@
         return $results;
     }
 
-    function getPopularMovieByGenre(string $idGenre): array{
+    /**
+     * Fonction qui retourne les films populaires associés à un genre
+     * @param string $idGenre ID du genre
+     * @return array Tableau contenant les films populaires associés à un genre
+     */
+    function getPopularMovieByGenre(string $idGenre): array {
 
         $curl = curl_init();
 
@@ -304,7 +354,12 @@
         return $results;
     }
 
-    function getPopularTVByGenre(string $idGenre): array{
+    /**
+     * Fonction qui retourne les séries populaires associées à un genre
+     * @param string $idGenre ID du genre
+     * @return array Tableau contenant les séries populaires associées à un genre
+     */
+    function getPopularTVByGenre(string $idGenre): array {
 
         $curl = curl_init();
 
@@ -332,10 +387,10 @@
     }
 
     /**
-     * Fonction qui récupere l'image du jour de la Nasa
-     * @return l'url de l'image, le titre, et la date
+     * Fonction qui récupere l'image du jour de la NASA
+     * @return array URL de l'image, le titre, et la date
      */
-    function getImageFromNasa(): array{
+    function getImageFromNasa(): array {
 
         $curl = curl_init();
 
@@ -361,8 +416,6 @@
         if (isset($response['thumbnail_url']) && !empty($response['thumbnail_url'])) {
             $urlNasa = $response['thumbnail_url'];
         }
-
-        echo $err ;
 
         return [
             "urlNasa" => $urlNasa,
