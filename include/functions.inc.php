@@ -330,3 +330,43 @@
 
         return $results;
     }
+
+    /**
+     * Fonction qui récupere l'image du jour de la Nasa
+     * @return l'url de l'image, le titre, et la date
+     */
+    function getImageFromNasa(): array{
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.nasa.gov/planetary/apod?thumbs=true&api_key=OLfkrDvBOt5FawgHH38mabzwDGqBxKAAETerNd32",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        $response = json_decode($response, true);
+
+        $urlNasa = $response['url'];
+        if (isset($response['thumbnail_url']) && !empty($response['thumbnail_url'])) {
+            $urlNasa = $response['thumbnail_url'];
+        }
+
+        echo $err ;
+
+        return [
+            "urlNasa" => $urlNasa,
+            "title" => $response['title'],
+            "date" => $response['date']
+        ];
+    }

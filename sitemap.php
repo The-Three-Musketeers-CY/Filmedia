@@ -9,6 +9,7 @@
             <li><a href="./movies.php">&gt; Films</a></li>
             <li><a href="./series.php">&gt; Séries</a></li>
             <li><a href="./statistics.php">Statistiques</a></li>
+            <li><a href="./apod.php">L'image du jour</a></li>
             <li><a href="./sitemap.php">Plan du site</a></li>
         </ul>
     </main>

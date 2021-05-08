@@ -2,6 +2,7 @@
     setlocale(LC_TIME, "fr_FR.UTF8");
 
     require_once './include/functions.inc.php';
+    require_once './include/utils.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">

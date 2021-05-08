@@ -38,3 +38,49 @@
 
         return $array;
     }
+
+     /**
+     * Fonction renvoie l'adresse IP du visiteur
+     * @return l'addresse IP du visiteur
+     */
+    function getIp(): string{
+        return $_SERVER['REMOTE_ADDR'];
+    }
+
+    /**
+     * Fonction qui renvoie la position du visiteur
+     * @param l'adresse ip du visiteur
+     * @return tableaux de données de localisation, ville, département, pays
+     */
+    function getPosition(string $ip): array{
+  
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => "http://geoplugin.net/xml.gp?ip=".$ip,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if(($response = simplexml_load_string($response))== false){
+            return [
+                "erreur" => "Trop de requêtes efféctuées !"
+            ];
+        }else{
+            return [
+                "city" => $response->geoplugin_city,
+                "dept" => $response->geoplugin_regionName,
+                "country" => $response->geoplugin_countryName
+            ];
+        }
+    }
