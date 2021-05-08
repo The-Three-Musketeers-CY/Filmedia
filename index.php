@@ -40,12 +40,12 @@ foreach($movies as $movie){
     echo "<a href=\"./details.php?id=" . $movie->id . "&amp;type=movie\">\n";
     echo "\t<article>\n";
     if(isset($movie->poster_path)){
-        echo "\t\t<img src=\"https://image.tmdb.org/t/p/w185". $movie->poster_path ."\" alt=\"Affiche de ". $movie->title ."\"/>\n";
+        echo "\t\t<img src=\"https://image.tmdb.org/t/p/w185" . $movie->poster_path . "\" alt=\"Affiche de " . htmlspecialchars($movie->title) . "\"/>\n";
     }else{
         echo "\t\t<img src=\"./img/no-image.svg\" width=\"185\" alt=\"no image\"/>\n";
     }
     echo "\t\t<div class=\"info\">\n";
-    echo "\t\t\t<h3>".$movie->title."</h3>\n";
+    echo "\t\t\t<h3>" . htmlspecialchars($movie->title) . "</h3>\n";
     echo "\t\t\t<p>" . strftime("%d %b %Y", date_timestamp_get(date_create($movie->release_date))) . "</p>\n";
     echo "\t\t</div>\n";
     echo "\t</article>\n";
@@ -61,10 +61,10 @@ foreach($movies as $movie){
 $trends = getWeekTrends();
 foreach($trends as $trend){
     if ($trend->media_type == "movie") {
-        $title = $trend->title;
+        $title = htmlspecialchars($trend->title);
         $date = $trend->release_date;
     } else {
-        $title = $trend->name;
+        $title = htmlspecialchars($trend->name);
         $date = $trend->first_air_date;
     }
     echo "<a href=\"./details.php?id=" . $trend->id . "&amp;type=". $trend->media_type ."\">\n";

@@ -1,14 +1,14 @@
 <?php
 
-$page_title = "Filmedia - Page de détails" ;
+$page_title = "Filmedia - Page de détails";
 $page_description = "Accédez à tous les détails du média";
 require './include/header.inc.php';
 require_once './include/utils.inc.php';
 
-if(isset($_GET['id']) && !empty($_GET['id']) && isset($_GET['type']) && !empty($_GET['type'])) {
+if (isset($_GET['id']) && !empty($_GET['id']) && isset($_GET['type']) && !empty($_GET['type'])) {
     $id = htmlspecialchars($_GET['id']);
     $type = htmlspecialchars($_GET['type']);
-} else{
+} else {
     header('Location: ./');
     exit();
 }
@@ -31,10 +31,10 @@ switch ($type) {
 if ($type == "movie") {
     $name = $media->title;
     $poster = $media->poster_path;
-}else if ($type == "person") {
+} else if ($type == "person") {
     $name = $media->name;
     $poster = $media->profile_path;
-}else {
+} else {
     $name = $media->name;
     $poster = $media->poster_path;
 }

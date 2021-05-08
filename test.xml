@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Accédez à tous les détails du média" />
+      
+    <meta name="author" content="Benjamin Walleth" />
+    <meta name="author" content="William Denoyer" />
+<title>Filmedia - Page de détails</title>
+    <link rel="icon" href="./img/favicon.ico" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&amp;family=Roboto&amp;display=swap" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <a href="./"><img id="logo" src="./img/logo.png" alt="Filmedia" /></a>
+        <nav id="navbar">
+            <ul>
+                <li><a href="./search.php">Recherche</a></li>
+                <li>|</li>
+                <li><a href="./movies.php">Films</a></li>
+                <li><a href="./series.php">Séries</a></li>
+            </ul>
+        </nav>
+    </header>    <main>
+        <div id="back-stats">
+            <a href="./"><img src="./img/back-arrow.svg" alt="Retour arrière" width="20" />Retour à l'accueil</a>
+            <p>11 vues</p>
+        </div>
+        <h1>Vue d'ensemble</h1>
+        <section id="details">
+            <img src="https://image.tmdb.org/t/p/w300/6q2QlOGZdDdA50hhTs53avwHh8C.jpg" width="300" alt="Affiche de Un homme en colère"/>
+            <div id="details-info">
+                <div id="details-info-title">
+                    <h2>Un homme en colère</h2>
+                    <p>Prochainement : le 12 mai 2021 (FR)</p>
+                    <p>Genres : Action, Crime</p>
+                </div>
+                <div id="details-info-description">
+                    <p>Un convoyeur de fond fraichement engagé surprend ses collègues par l’incroyable précision de ses tirs de riposte alors qu’ils subissent les assauts de braqueurs expérimentés. Tous se demandent désormais qui il est, d’où il vient et pourquoi est-il là.</p>
+                </div>
+            </div>
+<aside>
+	<h3>Tête d'affiche :</h3>
+	<div id="cast">
+		<a href="./details.php?id=976&amp;type=person">
+			<article>
+				<img src="https://image.tmdb.org/t/p/w92/lldeQ91GwIVff43JBrpdbAAeYWj.jpg" alt="Photo de Jason Statham"/>
+				<h4>Jason Statham</h4>
+				<p>H</p>
+			</article>
+		</a>
+		<a href="./details.php?id=60416&amp;type=person">
+			<article>
+				<img src="https://image.tmdb.org/t/p/w92/3V3L7MJGURXU6lVaqai80zFT4Wa.jpg" alt="Photo de Alex Ferns"/>
+				<h4>Alex Ferns</h4>
+				<p>Sticky John</p>
+			</article>
+		</a>
+		<a href="./details.php?id=7497&amp;type=person">
+			<article>
+				<img src="https://image.tmdb.org/t/p/w92/a5ax2ICLrV6l0T74OSFvzssCQyQ.jpg" alt="Photo de Holt McCallany"/>
+				<h4>Holt McCallany</h4>
+				<p>Bullet</p>
+			</article>
+		</a>
+		<a href="./details.php?id=928572&amp;type=person">
+			<article>
+				<img src="https://image.tmdb.org/t/p/w92/2TofqgDl7ZlrAairMKKOSPITzka.jpg" alt="Photo de Scott Eastwood"/>
+				<h4>Scott Eastwood</h4>
+				<p></p>
+			</article>
+		</a>
+	</div>
+</aside>
+        </section>
+<article id="details-video">
+	<h2>Bande annonce</h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/p3Pv8F3k0e8" title="Bande annonce de Un homme en colère" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+</article>
+    </main>    <footer>
+        <p><a href="./statistics.php">Statistiques</a> | <a href="./sitemap.php">Plan du site</a></p>
+        <p>&#xA9;2021 - Filmedia</p>
+        <p>Par Benjamin WALLETH &amp; William DENOYER</p>
+        <p>Données fournies par :</p>
+        <img id="tmdb-logo" src="./img/tmdb.svg" alt="The Movie DB" />
+    </footer>
+</body>
+</html>
