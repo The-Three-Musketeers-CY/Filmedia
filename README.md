@@ -4,7 +4,7 @@ Filmedia est un projet réalisé par William DENOYER & Benjamin WALLETH en L2 In
 
 ![CY Cergy Paris Université](https://upload.wikimedia.org/wikipedia/fr/thumb/6/69/Logo_CY_Cergy_Paris_Universit%C3%A9.svg/129px-Logo_CY_Cergy_Paris_Universit%C3%A9.svg.png)
 
-Ce projet a été réalisé en PHP, HTML5 & CSS3.
+> Ce projet a été réalisé en PHP, HTML5 & CSS3.
 
 ## Description du projet
 
@@ -13,6 +13,11 @@ Ce projet consiste en la création d'un site web avec des pages dynamiques réal
 Ce site est orienté sur les fims et les séries. Il permet aux utilisateurs de retrouver les films au box-office, les séries du moment, différents films/séries par catégories, de pouvoir rechercher des films/séries/acteurs... Mais aussi, d'afficher en détails les informations de ces différents médias pour y retrouver la date de sortie, la description, les bandes annonces et d'autres informations...
 
 Pour récupérer les différentes données dont le site à besoin, on utilise plusieurs API qui reposent sur les deux formats de données les plus courant dans le web : **JSON** & **XML**.
+
+### URLs
+
+ - https://dermos.alwaysdata.net/projet
+ - https://benjaminwalleth.alwaysdata.net/projet
 
 ## Critères d'évaluation
 
